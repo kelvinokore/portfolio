@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kelvin Okore | Web designer, AI automator and AI animator</title>
+<meta name="description" content="I design websites and online stores, then connect orders, payments and customer messages so they run on their own. I also make AI-animated clips and UGC ads.">
+<meta property="og:title" content="Kelvin Okore | Websites, automation and animation">
+<meta property="og:description" content="Brands that sell while you sleep. Web design, AI automation and animated ads.">
+<meta property="og:image" content="assets/amaana-hero.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23190f0a'/%3E%3Ctext x='50' y='70' font-size='62' font-family='Arial Black,sans-serif' text-anchor='middle' fill='%23f2b04c'%3EK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#170e09; --bg2:#20140d; --card:#2b1b12; --line:#4a3223;
+  --text:#f3e8da; --muted:#b9a592; --gold:#f2b04c; --gold-ink:#2a1706; --ok:#7fd39a;
+  --display:'Syne','Arial Black',Impact,sans-serif;
+  --body:'Manrope',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --r:18px;
+}
+:root[data-theme="light"]{
+  --bg:#f6ede2; --bg2:#efe2d1; --card:#fff8ef; --line:#dcc6ad;
+  --text:#2a1a10; --muted:#7a6350; --gold:#b86a0c; --gold-ink:#fff7ea; --ok:#2f8a52;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:var(--display);line-height:1.05;letter-spacing:-.02em}
+h2{font-size:clamp(2rem,5vw,3.4rem);margin-bottom:14px}
+section{padding:96px 0}
+.lead{color:var(--muted);max-width:60ch;font-size:1.05rem}
+
+/* nav */
+header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.logo{font-family:var(--display);font-weight:800;font-size:1.25rem;text-decoration:none}
+.logo b{color:var(--gold)}
+nav ul{display:flex;gap:26px;list-style:none}
+nav a{text-decoration:none;color:var(--muted);font-weight:600;font-size:.95rem}
+nav a:hover{color:var(--text)}
+.nav-right{display:flex;align-items:center;gap:10px}
+.icon-btn{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--text);cursor:pointer;font-size:1.05rem}
+.menu-btn{display:none}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid transparent;cursor:pointer;font-family:var(--body);font-size:1rem;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-gold{background:var(--gold);color:var(--gold-ink)}
+.btn-line{border-color:var(--line);color:var(--text);background:transparent}
+.btn-line:hover{border-color:var(--gold)}
+.btn-sm{padding:10px 20px;font-size:.92rem}
+
+/* hero */
+.hero{padding:72px 0 88px;background:
+  linear-gradient(var(--line) 1px,transparent 1px) 0 0/64px 64px,
+  linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/64px 64px;
+  background-color:var(--bg);position:relative}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 20% 30%,transparent 0,var(--bg) 75%);pointer-events:none}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.status{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border:1px solid var(--line);border-radius:999px;background:var(--card);font-size:.9rem;font-weight:600;margin-bottom:26px}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 var(--ok);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 9px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.hero h1{font-size:clamp(2.8rem,8vw,5.6rem);font-weight:800;margin-bottom:24px}
+.hero h1 span{display:block;color:var(--gold)}
+.hero p{color:var(--muted);font-size:1.15rem;max-width:52ch;margin-bottom:32px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+
+/* live order panel */
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:0 30px 60px -30px #000a}
+.panel-top{display:flex;align-items:center;gap:7px;padding:12px 16px;border-bottom:1px solid var(--line);background:var(--bg2);font-size:.82rem;color:var(--muted);font-weight:600}
+.panel-top i{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.panel-top span{margin-left:8px}
+.feed{padding:18px;display:flex;flex-direction:column;gap:10px;min-height:330px}
+.msg{max-width:88%;padding:10px 14px;border-radius:14px;font-size:.94rem;line-height:1.45;animation:in .35s ease both}
+.msg.in{background:var(--bg2);border:1px solid var(--line);align-self:flex-start;border-bottom-left-radius:4px}
+.msg.out{background:var(--gold);color:var(--gold-ink);align-self:flex-end;border-bottom-right-radius:4px;font-weight:600}
+.msg.sys{align-self:center;background:transparent;border:1px dashed var(--ok);color:var(--ok);font-size:.84rem;font-weight:700;border-radius:999px;padding:6px 14px}
+@keyframes in{from{opacity:0;transform:translateY(8px)}}
+.panel-note{padding:12px 18px;border-top:1px solid var(--line);font-size:.82rem;color:var(--muted)}
+
+/* strip */
+.strip{border-block:1px solid var(--line);background:var(--bg2);padding:26px 0}
+.strip ul{list-style:none;display:flex;flex-wrap:wrap;gap:12px 34px;justify-content:space-between;font-weight:700;font-family:var(--display);font-size:1.05rem}
+.strip li::before{content:"+";color:var(--gold);margin-right:10px}
+
+/* services */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.svc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:30px}
+.svc:first-child{grid-row:span 1;border-color:var(--gold)}
+.svc h3{font-size:1.45rem;margin-bottom:12px}
+.svc p{color:var(--muted);font-size:.98rem}
+.svc ul{margin-top:16px;list-style:none;font-size:.93rem;font-weight:600}
+.svc li{padding:7px 0;border-top:1px solid var(--line)}
+
+/* about */
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
+.about-side{position:sticky;top:100px}
+.facts{margin-top:24px;display:grid;gap:12px}
+.fact{padding:16px 18px;background:var(--card);border:1px solid var(--line);border-radius:14px}
+.fact b{display:block;font-family:var(--display);font-size:.95rem;margin-bottom:2px}
+.fact span{color:var(--muted);font-size:.93rem}
+.about-text p{margin-bottom:18px;color:var(--muted);max-width:62ch}
+.about-text p:first-child{color:var(--text);font-size:1.25rem;font-weight:600;line-height:1.5}
+
+/* skills */
+.skills{background:var(--bg2);border-block:1px solid var(--line)}
+.skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.skill-box{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px}
+.skill-box h3{font-size:1.2rem;margin-bottom:16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:7px 14px;border-radius:999px;border:1px solid var(--line);font-size:.88rem;font-weight:600;background:var(--bg)}
+.chip.learn{border-style:dashed;color:var(--muted)}
+.legend{margin-top:20px;color:var(--muted);font-size:.9rem}
+
+/* projects */
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin:30px 0 34px}
+.filters button{padding:10px 20px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--muted);font:600 .92rem var(--body);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--gold);color:var(--gold-ink);border-color:var(--gold)}
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.proj{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.proj[hidden]{display:none}
+.media{position:relative;aspect-ratio:16/10;background:var(--bg2);overflow:hidden;border:0;width:100%;cursor:pointer;padding:0;display:block}
+.media img{width:100%;height:100%;object-fit:cover}
+.media.top img{object-position:top}
+.play{position:absolute;inset:auto 14px 14px auto;width:54px;height:54px;border-radius:50%;background:var(--gold);color:var(--gold-ink);display:grid;place-items:center;font-size:1.1rem;box-shadow:0 8px 20px #0008}
+.proj-body{padding:24px 26px 28px;display:flex;flex-direction:column;gap:12px;flex:1}
+.tag{align-self:flex-start;font-size:.8rem;font-weight:700;padding:4px 12px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+.tag.live{color:var(--ok);border-color:var(--ok)}
+.tag.practice{color:var(--gold);border-color:var(--gold)}
+.proj h3{font-size:1.45rem}
+.proj p{color:var(--muted);font-size:.97rem}
+.proj .row{margin-top:auto;padding-top:8px;display:flex;gap:10px;flex-wrap:wrap}
+.flow{display:flex;align-items:center;justify-content:center;gap:10px;height:100%;padding:20px;background:linear-gradient(135deg,#2e1d12,#1a0f08);flex-wrap:wrap}
+.node{padding:12px 16px;border-radius:12px;border:1px solid var(--gold);color:var(--gold);font-weight:700;font-size:.88rem;background:#0003}
+.flow .arrow{color:var(--muted)}
+.reels{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:6px}
+.reel{padding:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card);cursor:pointer;position:relative;aspect-ratio:3/4;color:var(--text);text-align:left}
+.reel img{width:100%;height:100%;object-fit:cover}
+.reel span{position:absolute;left:0;right:0;bottom:0;padding:34px 14px 12px;background:linear-gradient(transparent,#000c);font-weight:700;font-size:.88rem;color:#fff}
+.reel::after{content:"▶";position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;background:var(--gold);color:var(--gold-ink);display:grid;place-items:center;font-size:.8rem}
+.sub{font-family:var(--display);font-size:1.5rem;margin:56px 0 10px}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px;counter-reset:s}
+.step{border-top:3px solid var(--gold);padding-top:18px;counter-increment:s}
+.step::before{content:counter(s);font-family:var(--display);font-size:2.4rem;color:var(--gold);font-weight:800;display:block}
+.step h3{font-size:1.15rem;margin:6px 0}
+.step p{color:var(--muted);font-size:.95rem}
+
+/* contact */
+.contact{background:var(--gold);color:var(--gold-ink);border-radius:28px;padding:clamp(32px,6vw,72px);display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+:root[data-theme="light"] .contact{background:#2a1a10;color:#f3e8da}
+.contact h2{font-size:clamp(2.2rem,6vw,4rem)}
+.contact p{font-size:1.1rem;opacity:.85;max-width:44ch}
+.links{display:grid;gap:12px}
+.link{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border-radius:16px;background:var(--bg);color:var(--text);text-decoration:none;font-weight:700;border:1px solid transparent;transition:transform .15s}
+.link:hover{transform:translateX(6px)}
+.link small{display:block;font-weight:500;color:var(--muted);font-size:.85rem}
+.link .go{color:var(--gold)}
+footer{padding:36px 0 48px;color:var(--muted);font-size:.9rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+/* floating whatsapp + modal */
+.wa-float{position:fixed;right:18px;bottom:18px;z-index:25;background:#25d366;color:#052b12;font-weight:800;text-decoration:none;padding:14px 20px;border-radius:999px;box-shadow:0 10px 30px #0007;display:flex;gap:8px;align-items:center}
+dialog{border:0;background:transparent;margin:auto;max-width:min(92vw,980px);width:100%;overflow:visible}
+dialog::backdrop{background:#000d}
+dialog video{width:100%;max-height:82vh;border-radius:14px;background:#000;margin:auto}
+.close{position:absolute;top:-48px;right:0;background:var(--gold);color:var(--gold-ink);border:0;border-radius:999px;padding:8px 18px;font-weight:800;cursor:pointer;font-family:var(--body)}
+
+@media(max-width:900px){
+  section{padding:68px 0}
+  .hero .wrap,.about,.contact{grid-template-columns:1fr}
+  .about-side{position:static}
+  .services,.skill-grid,.projects{grid-template-columns:1fr}
+  .reels{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:1fr 1fr}
+  .menu-btn{display:grid;place-items:center}
+  nav{position:absolute;left:0;right:0;top:68px;background:var(--bg);border-bottom:1px solid var(--line);display:none}
+  nav.open{display:block}
+  nav ul{flex-direction:column;gap:0;padding:8px 20px 16px}
+  nav a{display:block;padding:14px 0;font-size:1.05rem}
+  .nav-right .btn{display:none}
+  .wa-float span{display:none}
+}
+@media(max-width:520px){.steps{grid-template-columns:1fr}.strip ul{flex-direction:column}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">Kelvin<b>.</b>Okore</a>
+    <nav id="menu" aria-label="Main">
+      <ul>
+        <li><a href="#services">What I do</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#process">How I work</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <button class="icon-btn" id="theme" aria-label="Switch between dark and light theme">☾</button>
+      <a class="btn btn-gold btn-sm" href="#contact">Hire me</a>
+      <button class="icon-btn menu-btn" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="status"><span class="dot"></span> Open for new projects</div>
+      <h1>I build brands that sell <span>while you sleep.</span></h1>
+      <p>I'm Kelvin Okore, a web designer, AI automator and AI animator. I design your website or store, then set up the system behind it so orders, payments and customer messages handle themselves.</p>
+      <div class="cta">
+        <a class="btn btn-gold" id="hireWa" href="https://wa.me/2348122158123" target="_blank" rel="noopener">Start a project on WhatsApp</a>
+        <a class="btn btn-line" href="#projects">See my work</a>
+      </div>
+    </div>
+    <div class="panel" aria-label="Example of an automated order conversation">
+      <div class="panel-top"><i></i><i></i><i></i><span>Example: an order that handles itself</span></div>
+      <div class="feed" id="feed" aria-live="off"></div>
+      <div class="panel-note">Sample conversation, based on the kind of bots I build.</div>
+    </div>
+  </div>
+</section>
+
+<div class="strip"><div class="wrap"><ul>
+  <li>Websites and stores</li><li>Order and payment automation</li><li>Telegram and WhatsApp bots</li><li>2D and 3D AI animation</li>
+</ul></div></div>
+
+<section id="services">
+  <div class="wrap">
+    <h2>One person. The whole system.</h2>
+    <p class="lead">Most brands need a site, a way to take orders and someone to answer messages. I set up all three so you can focus on the product.</p>
+    <div class="services">
+      <article class="svc">
+        <h3>Websites and stores</h3>
+        <p>Fast, mobile-first sites that show your brand properly and make buying easy.</p>
+        <ul><li>Brand websites</li><li>Online stores and menus</li><li>Order pages with live totals</li></ul>
+      </article>
+      <article class="svc">
+        <h3>AI automation</h3>
+        <p>The back office that runs without you: orders in, receipts out, customers answered.</p>
+        <ul><li>Telegram and WhatsApp bots</li><li>Order and payment flows (n8n)</li><li>Staff alerts and confirmations</li></ul>
+      </article>
+      <article class="svc">
+        <h3>AI animation and ads</h3>
+        <p>Animated clips and UGC-style ads for artists, storytellers and product brands.</p>
+        <ul><li>2D and 3D AI animation</li><li>UGC product ads</li><li>Story and music visuals</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="about" style="background:var(--bg2);border-block:1px solid var(--line)">
+  <div class="wrap about">
+    <div class="about-side">
+      <h2>About me</h2>
+      <div class="facts">
+        <div class="fact"><b>Based in</b><span>Port Harcourt, Nigeria. Working with brands anywhere.</span></div>
+        <div class="fact"><b>Right now</b><span>Building order-and-payment automations and growing my AI animation work.</span></div>
+        <div class="fact"><b>Tools</b><span>VS Code, GitHub, n8n, Telegram Bot API, AI video and image tools.</span></div>
+      </div>
+    </div>
+    <div class="about-text">
+      <p>I help brands scale by making the boring parts run on their own.</p>
+      <p>I started with websites and stores, then saw the real problem for small businesses: the site looks good, but someone still has to take the order, check the payment and reply to every message. So I learned to build the system behind the site too.</p>
+      <p>Alongside that, I make animated clips for artists and storytellers, and UGC-style ads for product brands. Design, automation and animation together mean one person can launch your brand end to end.</p>
+      <p>I'm still growing, and I'm honest about it. Some projects below are practice or demo builds, and I label them so you know exactly what you're looking at.</p>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="skills">
+  <div class="wrap">
+    <h2>What I work with</h2>
+    <p class="lead">Solid skills are filled in. Dashed ones are what I'm learning now.</p>
+    <div class="skill-grid">
+      <div class="skill-box"><h3>Web design</h3><div class="chips">
+        <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">Responsive design</span><span class="chip">GitHub Pages</span><span class="chip">Brand websites</span><span class="chip learn">JavaScript</span><span class="chip learn">React</span></div></div>
+      <div class="skill-box"><h3>Automation</h3><div class="chips">
+        <span class="chip">n8n workflows</span><span class="chip">Telegram bots</span><span class="chip">WhatsApp order flows</span><span class="chip">Payment receipts</span><span class="chip learn">APIs and webhooks</span><span class="chip learn">AI agents</span></div></div>
+      <div class="skill-box"><h3>AI animation</h3><div class="chips">
+        <span class="chip">2D AI animation</span><span class="chip">3D AI animation</span><span class="chip">UGC ads</span><span class="chip">Storytelling</span><span class="chip learn">Character consistency</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2>Selected work</h2>
+    <p class="lead">Real builds and practice projects, labelled honestly.</p>
+    <div class="filters" role="group" aria-label="Filter projects">
+      <button aria-pressed="true" data-f="all">All</button>
+      <button aria-pressed="false" data-f="web">Websites</button>
+      <button aria-pressed="false" data-f="auto">Automation</button>
+      <button aria-pressed="false" data-f="anim">Animation and ads</button>
+    </div>
+    <div class="projects">
+      <article class="proj" data-c="web">
+        <button class="media top" data-video="assets/freshbites-demo.mp4" data-poster="assets/freshbites-demo.jpg" aria-label="Play Fresh Bites demo"><img src="assets/freshbites.jpg" alt="Fresh Bites ordering website on a phone" loading="lazy"><span class="play">▶</span></button>
+        <div class="proj-body">
+          <span class="tag live">Live website</span>
+          <h3>Fresh Bites: restaurant ordering site</h3>
+          <p>A small restaurant stand needed to stop queues. Customers pick food, see their total, send the order on WhatsApp, pay by transfer and show the receipt for pickup.</p>
+          <div class="row">
+            <a class="btn btn-gold btn-sm" href="https://kelvinokore.github.io/" target="_blank" rel="noopener">Open live site</a>
+            <button class="btn btn-line btn-sm" data-video="assets/freshbites-demo.mp4" data-poster="assets/freshbites-demo.jpg">Watch demo</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="proj" data-c="auto">
+        <div class="media" style="cursor:default"><div class="flow"><span class="node">Customer</span><span class="arrow">→</span><span class="node">Telegram</span><span class="arrow">→</span><span class="node">n8n logic</span><span class="arrow">→</span><span class="node">Reply + staff alert</span></div></div>
+        <div class="proj-body">
+          <span class="tag practice">Demo build</span>
+          <h3>Resort order bot on Telegram</h3>
+          <p>An n8n workflow that takes dine-in, poolside, beachside, VIP and takeaway orders, shows prices in naira, and alerts staff so no order gets missed.</p>
+          <div class="row"><a class="btn btn-line btn-sm" href="#contact">Ask for a demo</a></div>
+        </div>
+      </article>
+
+      <article class="proj" data-c="anim">
+        <button class="media" data-video="assets/reel-c.mp4" data-poster="assets/reel-c.jpg" aria-label="Play Amaana Oil UGC ad"><img src="assets/amaana-hero.jpg" alt="AI-generated UGC ad: woman holding Amaana Oil" loading="lazy"><span class="play">▶</span></button>
+        <div class="proj-body">
+          <span class="tag practice">Sample ad</span>
+          <h3>UGC ad for a cooking oil brand</h3>
+          <p>A product ad that feels like a real customer talking, made with AI so a brand can test ideas without a film crew.</p>
+          <div class="row"><button class="btn btn-gold btn-sm" data-video="assets/reel-c.mp4" data-poster="assets/reel-c.jpg">Watch the ad</button></div>
+        </div>
+      </article>
+
+      <article class="proj" data-c="anim">
+        <button class="media" data-video="assets/reel-d.mp4" data-poster="assets/reel-d.jpg" aria-label="Play animated scene"><img src="assets/reel-d.jpg" alt="AI animated sci-fi scene" loading="lazy"><span class="play">▶</span></button>
+        <div class="proj-body">
+          <span class="tag practice">Personal project</span>
+          <h3>Animated story scenes</h3>
+          <p>Short 2D and 3D AI-animated clips for artists and storytellers who need visuals for songs, stories and promos.</p>
+          <div class="row"><button class="btn btn-gold btn-sm" data-video="assets/reel-d.mp4" data-poster="assets/reel-d.jpg">Watch the clip</button></div>
+        </div>
+      </article>
+    </div>
+
+    <div id="reelBlock" data-c="anim">
+      <h3 class="sub">More animation clips</h3>
+      <div class="reels">
+        <button class="reel" data-video="assets/reel-a.mp4" data-poster="assets/reel-a.jpg"><img src="assets/reel-a.jpg" alt="" loading="lazy"><span>Story clip 1</span></button>
+        <button class="reel" data-video="assets/reel-b.mp4" data-poster="assets/reel-b.jpg"><img src="assets/reel-b.jpg" alt="" loading="lazy"><span>Story clip 2</span></button>
+        <button class="reel" data-video="assets/reel-c.mp4" data-poster="assets/reel-c.jpg"><img src="assets/amaana-cooking.jpg" alt="" loading="lazy"><span>Amaana Oil ad</span></button>
+        <button class="reel" data-video="assets/reel-d.mp4" data-poster="assets/reel-d.jpg"><img src="assets/reel-d.jpg" alt="" loading="lazy"><span>Sci-fi scene</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process" style="background:var(--bg2);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <h2>How we'd work together</h2>
+    <p class="lead">Simple, clear and fast, so you always know what's next.</p>
+    <div class="steps">
+      <div class="step"><h3>Chat</h3><p>Tell me about your brand and where you lose time or sales.</p></div>
+      <div class="step"><h3>Plan</h3><p>I send a clear scope and price before I start building.</p></div>
+      <div class="step"><h3>Build</h3><p>I design the site, wire up orders and payments, and test every button.</p></div>
+      <div class="step"><h3>Launch</h3><p>Go live, and I stay on to fix and improve what you find.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact">
+      <div>
+        <h2>Let's build yours.</h2>
+        <p>Tell me what you sell and what's slowing you down. I'll reply with a plan and a price.</p>
+      </div>
+      <div class="links">
+        <a class="link" id="contactWa" href="https://wa.me/2348122158123?text=Hi%20Kelvin%2C%20I%20saw%20your%20portfolio%20and%20I%27d%20like%20to%20talk%20about%20a%20project." target="_blank" rel="noopener"><span>WhatsApp<small>Fastest way to reach me</small></span><span class="go">Message</span></a>
+        <a class="link" href="mailto:kelvinokore27@gmail.com?subject=Project%20enquiry"><span>Email<small>kelvinokore27@gmail.com</small></span><span class="go">Write</span></a>
+        <!-- Add your other links here later, for example:
+        <a class="link" href="https://github.com/kelvinokore" target="_blank" rel="noopener"><span>GitHub<small>My code</small></span><span class="go">Visit</span></a> -->
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span>© <span id="yr">2026</span> Kelvin Okore</span><span>Built by hand, with Claude, and shipped from VS Code.</span></div></footer>
+
+<a class="wa-float" href="https://wa.me/2348122158123?text=Hi%20Kelvin%2C%20I%27d%20like%20to%20talk%20about%20a%20project." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬 <span>Chat on WhatsApp</span></a>
+
+<dialog id="vd" aria-label="Video player">
+  <button class="close" id="vclose">Close</button>
+  <video id="vp" controls playsinline preload="none"></video>
+</dialog>
+
+<script>
+// theme (remembered when the browser allows it)
+const root=document.documentElement,tb=document.getElementById('theme');
+try{const t=localStorage.getItem('theme');if(t)root.dataset.theme=t}catch(e){}
+const syncT=()=>tb.textContent=root.dataset.theme==='light'?'☀':'☾';syncT();
+tb.onclick=()=>{root.dataset.theme=root.dataset.theme==='light'?'dark':'light';try{localStorage.setItem('theme',root.dataset.theme)}catch(e){}syncT()};
+
+// mobile menu
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.onclick=()=>{const o=menu.classList.toggle('open');burger.setAttribute('aria-expanded',o)};
+menu.querySelectorAll('a').forEach(a=>a.onclick=()=>{menu.classList.remove('open');burger.setAttribute('aria-expanded',false)});
+
+// project filters
+const cards=[...document.querySelectorAll('.proj'),document.getElementById('reelBlock')];
+document.querySelectorAll('.filters button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.filters button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+  const f=b.dataset.f;cards.forEach(c=>c.hidden=!(f==='all'||c.dataset.c===f));
+});
+
+// video modal: files only load when clicked (kind to slow networks)
+const dlg=document.getElementById('vd'),vp=document.getElementById('vp');
+document.querySelectorAll('[data-video]').forEach(el=>el.addEventListener('click',()=>{
+  vp.poster=el.dataset.poster||'';vp.src=el.dataset.video;dlg.showModal();vp.play().catch(()=>{});
+}));
+const stop=()=>{vp.pause();vp.removeAttribute('src');vp.load()};
+document.getElementById('vclose').onclick=()=>dlg.close();
+dlg.addEventListener('close',stop);
+dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
+
+// hero: an order handling itself
+const script=[
+ ['in','Hi, I want 2 stir-fried spaghetti and 1 chicken.'],
+ ['out','Got it. Total: ₦6,500. Pay to the account below and send your receipt.'],
+ ['in','Done. Receipt attached.'],
+ ['sys','Payment received. Order #214 sent to the kitchen.'],
+ ['out','Confirmed! Your food will be ready when you arrive.']
+];
+const feed=document.getElementById('feed');
+function run(){
+  feed.innerHTML='';
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches){script.forEach(m=>add(m));return}
+  script.forEach((m,i)=>setTimeout(()=>add(m),900+i*1500));
+  setTimeout(run,900+script.length*1500+4500);
+}
+function add([t,txt]){const d=document.createElement('div');d.className='msg '+t;d.textContent=txt;feed.appendChild(d)}
+run();
+document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
